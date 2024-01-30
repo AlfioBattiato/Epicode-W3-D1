@@ -247,8 +247,8 @@ console.log(title);
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
-const film2000 = movies.filter((film) => film.Year >= "2000");
-console.log(film2000);
+const film2000 = movies.filter((film) => parseInt(film.Year) >= 2000);
+console.log("esercizio 12", film2000);
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
@@ -260,17 +260,23 @@ console.log(sumYearsFilm);
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
-function trovaFilm(parametro) {
-  const filmFind = movies.find((film) => film.imdbID === parametro);
-  return filmFind;
-}
-console.log(trovaFilm("tt2395427"));
+// function trovaFilm(parametro) {
+//   const filmFind = movies.find((film) => film.imdbID === parametro);
+//   return filmFind;
+// }
+// console.log(trovaFilm("tt2395427"));
+
+const trovaFilm = (movies, parametro) => {
+  return movies.find((film) => film.imdbID === parametro);
+};
+console.log(trovaFilm(movies, "tt4154796"));
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
 function trovaConIndice(anno) {
-  const filmAnno = movies.findIndex((film) => film.Year===anno )
+  const filmAnno = movies.findIndex((film) => film.Year === anno);
   return filmAnno;
 }
-console.log(trovaConIndice("2014"))
+console.log(trovaConIndice("2019"));
+
